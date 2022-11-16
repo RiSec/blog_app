@@ -1,22 +1,23 @@
-name: Node.js Reference Test
+name: Deploy to GitHub Pages
 
 on: [push]
-
 jobs:
   build:
-
     runs-on: ubuntu-latest
+
 
     strategy:
       matrix:
         node-version: [15, 16]
 
     steps:
-    - uses: actions/checkout@v1
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v1
-      with:
-        node-version: ${{ matrix.node-version }}
+      - name: Checkout
+        uses: actions/checkout@v3
+    - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.x'
+          cache: npm
     - name: Generate the test blog
       run: |
         npm i -g notablog
