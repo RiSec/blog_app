@@ -21,5 +21,8 @@ jobs:
       run: |
         npm i -g notablog
         notablog generate .
-      env:
-        CI: true
+    - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
