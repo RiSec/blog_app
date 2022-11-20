@@ -18,12 +18,10 @@ jobs:
         with:
           node-version: '16.x'
           cache: npm
-    - name: Generate the test blog
-      run: |
-        npm i -g notablog
-        notablog generate .
+    - run: npm i -g notablog
+    - run: notablog generate .
     - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: public
+          publish_dir: ./public
