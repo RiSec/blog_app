@@ -20,6 +20,5 @@ pnpm-lock.yaml
 !.vscode/extensions.json
 
 # Project
-TODO.md
 cache/
 *.log
